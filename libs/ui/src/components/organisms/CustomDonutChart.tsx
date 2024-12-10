@@ -1,35 +1,35 @@
-import { pie, PieArcDatum, arc } from 'd3';
-import { useMemo, useState } from 'react';
+import { pie, PieArcDatum, arc } from 'd3'
+import { useMemo, useState } from 'react'
 
-type DonutChartData = { label: string; value: number; color: string };
+type DonutChartData = { label: string; value: number; color: string }
 
 interface IDonutChartProps {
-  data: DonutChartData[];
+  data: DonutChartData[]
 }
 
 export const CustomDonutChart = ({ data }: IDonutChartProps) => {
-  const [hoveredValue, setHoveredValue] = useState<DonutChartData | null>(null);
+  const [hoveredValue, setHoveredValue] = useState<DonutChartData | null>(null)
 
   const arcs = useMemo(() => {
     const calculateArcs = pie<DonutChartData>()
       .value((data) => data.value)
-      .sort(null); // Sort for a predictable order (optional)
+      .sort(null) // Sort for a predictable order (optional)
 
-    const arcs = calculateArcs(data);
+    const arcs = calculateArcs(data)
 
-    return arcs;
-  }, [data]);
+    return arcs
+  }, [data])
 
-  const diameter = 200; // Adjust diameter as needed
-  const radius = diameter / 2;
-  const innerRadiusFactor = 0.7; // Adjust inner radius for donut thickness
-  const innerRadius = radius * innerRadiusFactor;
-  const strokeWidth = 0.5;
+  const diameter = 200 // Adjust diameter as needed
+  const radius = diameter / 2
+  const innerRadiusFactor = 0.7 // Adjust inner radius for donut thickness
+  const innerRadius = radius * innerRadiusFactor
+  const strokeWidth = 0.5
 
   const arcGenerator = arc<PieArcDatum<DonutChartData>>()
     .innerRadius(innerRadius)
     .outerRadius(radius)
-    .cornerRadius(3);
+    .cornerRadius(3)
 
   return (
     <div className="relative">
@@ -49,7 +49,7 @@ export const CustomDonutChart = ({ data }: IDonutChartProps) => {
         </defs>
         <g transform={`translate(${radius},${radius})`}>
           {arcs.map((arc, index) => {
-            const hovered = arc.data.label === hoveredValue?.label;
+            const hovered = arc.data.label === hoveredValue?.label
             return (
               <path
                 key={arc.data.label}
@@ -79,9 +79,8 @@ export const CustomDonutChart = ({ data }: IDonutChartProps) => {
         )}
       </div>
     </div>
-  );
-};
-
+  )
+}
 
 // import { pie, PieArcDatum, arc, text } from 'd3';
 // import { useMemo, useState } from 'react';

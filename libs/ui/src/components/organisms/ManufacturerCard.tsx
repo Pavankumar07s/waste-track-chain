@@ -72,8 +72,6 @@
 //   )
 // }
 
-
-
 // import { ManufacturersQuery } from '@recycle-chain/network/src/gql/generated'
 // import { useAccount } from '@recycle-chain/util/src/hooks/ether'
 // import { ReactNode } from 'react'
@@ -148,24 +146,24 @@
 //   )
 // }
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Eye, MapPin, Phone, Boxes } from 'lucide-react';
-import { ManufacturersQuery } from '@recycle-chain/network/src/gql/generated';
-import { useAccount } from '@recycle-chain/util/src/hooks/ether';
-import { DonutChartSimplified } from './DonutChartSimplified';
+import React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import { Eye, MapPin, Phone, Boxes } from 'lucide-react'
+import { ManufacturersQuery } from '@recycle-chain/network/src/gql/generated'
+import { useAccount } from '@recycle-chain/util/src/hooks/ether'
+import { DonutChartSimplified } from './DonutChartSimplified'
 
 export const ManufacturerCard = ({
   manufacturer,
 }: {
   manufacturer: ManufacturersQuery['manufacturers'][0]
 }) => {
-  const { account } = useAccount();
-  const isYou = account.toLowerCase() === manufacturer.id.toLowerCase();
+  const { account } = useAccount()
+  const isYou = account.toLowerCase() === manufacturer.id.toLowerCase()
 
   return (
-    <motion.div 
+    <motion.div
       className="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -179,7 +177,7 @@ export const ManufacturerCard = ({
           sold={manufacturer.soldCount}
           total={manufacturer.totalCount}
         />
-        
+
         {/* You Badge */}
         {isYou && (
           <div className="absolute top-4 right-4 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium tracking-wider">
@@ -222,7 +220,7 @@ export const ManufacturerCard = ({
         </div>
 
         {/* View Profile Link */}
-        <motion.div 
+        <motion.div
           className="mt-6 text-right"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -237,7 +235,7 @@ export const ManufacturerCard = ({
         </motion.div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
-export default ManufacturerCard;
+export default ManufacturerCard
