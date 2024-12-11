@@ -38,7 +38,6 @@
 //   )
 // }
 
-
 // import {
 //   ProductItemsQuery,
 //   ProductStatus,
@@ -145,46 +144,50 @@
 import {
   ProductItemsQuery,
   ProductStatus,
-} from '@recycle-chain/network/src/gql/generated';
-import { Timeline } from './Timeline';
-import { UpdateProductItemStatusButton } from './ActionButtons';
-import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle, XCircle, ClipboardCheck, Info, Tag } from 'lucide-react';
-import confetti from 'canvas-confetti';
-import { useEffect, useRef } from 'react';
+} from '@recycle-chain/network/src/gql/generated'
+import { Timeline } from './Timeline'
+import { UpdateProductItemStatusButton } from './ActionButtons'
+import { motion, AnimatePresence } from 'framer-motion'
+import { CheckCircle, XCircle, ClipboardCheck, Info, Tag } from 'lucide-react'
+import confetti from 'canvas-confetti'
+import { useEffect, useRef } from 'react'
 
 export interface IProductItemCardProps {
-  productItem: NonNullable<ProductItemsQuery['productItems']>[0];
-  isOwner?: boolean;
+  productItem: NonNullable<ProductItemsQuery['productItems']>[0]
+  isOwner?: boolean
 }
 
 export const ProductItemCard = ({
   productItem,
   isOwner = false,
 }: IProductItemCardProps) => {
-  const isRecycled = productItem.status === ProductStatus.Recycled;
-  const cardRef = useRef<HTMLDivElement>(null);
+  const isRecycled = productItem.status === ProductStatus.Recycled
+  const cardRef = useRef<HTMLDivElement>(null)
 
   const getStatusAnimation = (status: ProductStatus) => {
     switch (status) {
       case ProductStatus.Manufactured:
-        return { color: '#3b82f6', icon: <Info className="w-6 h-6" /> };
+        return { color: '#3b82f6', icon: <Info className="w-6 h-6" /> }
       case ProductStatus.Sold:
-        return { color: '#f59e0b', icon: <ClipboardCheck className="w-6 h-6" /> };
+        return {
+          color: '#f59e0b',
+          icon: <ClipboardCheck className="w-6 h-6" />,
+        }
       case ProductStatus.Returned:
-        return { color: '#ef4444', icon: <XCircle className="w-6 h-6" /> };
+        return { color: '#ef4444', icon: <XCircle className="w-6 h-6" /> }
       case ProductStatus.Recycled:
-        return { color: '#22c55e', icon: <CheckCircle className="w-6 h-6" /> };
+        return { color: '#22c55e', icon: <CheckCircle className="w-6 h-6" /> }
       default:
-        return { color: '#6b7280', icon: <Tag className="w-6 h-6" /> };
+        return { color: '#6b7280', icon: <Tag className="w-6 h-6" /> }
     }
-  };
+  }
 
-  const statusAnimation = getStatusAnimation(productItem.status);
+  const statusAnimation = getStatusAnimation(productItem.status)
 
   useEffect(() => {
     if (isRecycled && cardRef.current) {
-      const { top, left, width, height } = cardRef.current.getBoundingClientRect();
+      const { top, left, width, height } =
+        cardRef.current.getBoundingClientRect()
       confetti({
         particleCount: 100,
         spread: 70,
@@ -192,9 +195,9 @@ export const ProductItemCard = ({
           x: (left + width / 2) / window.innerWidth,
           y: (top + height / 2) / window.innerHeight,
         },
-      });
+      })
     }
-  }, [isRecycled]);
+  }, [isRecycled])
 
   return (
     <motion.div
@@ -228,9 +231,7 @@ export const ProductItemCard = ({
             style={{ color: statusAnimation.color }}
           >
             {statusAnimation.icon}
-            <span className="text-sm font-medium">
-              {productItem.status}
-            </span>
+            <span className="text-sm font-medium">{productItem.status}</span>
           </motion.div>
         </AnimatePresence>
       </div>
@@ -260,5 +261,5 @@ export const ProductItemCard = ({
         )}
       </div>
     </motion.div>
-  );
-};
+  )
+}

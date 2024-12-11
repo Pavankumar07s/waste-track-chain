@@ -42,30 +42,29 @@
 //   )
 // }
 
+import React from 'react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+import {
+  Eye,
+  Package,
+  Factory,
+  Recycle,
+  BarChart,
+  AlertTriangle,
+} from 'lucide-react'
 
-import React from 'react';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { 
-  Eye, 
-  Package, 
-  Factory, 
-  Recycle, 
-  BarChart, 
-  AlertTriangle 
-} from 'lucide-react';
-
-import { ProductsQuery } from '@recycle-chain/network/src/gql/generated';
-import { DonutChartSimplified } from './DonutChartSimplified';
-import { ToxicItemsChart } from './ToxicItemsChart';
+import { ProductsQuery } from '@recycle-chain/network/src/gql/generated'
+import { DonutChartSimplified } from './DonutChartSimplified'
+import { ToxicItemsChart } from './ToxicItemsChart'
 
 export interface IProductCardProps {
-  product: NonNullable<ProductsQuery['products']>[number];
+  product: NonNullable<ProductsQuery['products']>[number]
 }
 
 export const ProductCard: React.FC<IProductCardProps> = ({ product }) => {
   return (
-    <motion.div 
+    <motion.div
       className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
@@ -79,7 +78,7 @@ export const ProductCard: React.FC<IProductCardProps> = ({ product }) => {
           returned={product.returnedCount}
           recycled={product.recycledCount}
         />
-        
+
         {/* Product Stat Badge */}
         <div className="absolute top-4 right-4 bg-green-500 text-white text-xs px-2 py-1 rounded-full font-medium tracking-wider flex items-center">
           <Package className="w-4 h-4 mr-1" />
@@ -112,25 +111,25 @@ export const ProductCard: React.FC<IProductCardProps> = ({ product }) => {
 
         {/* Performance Metrics */}
         <div className="grid grid-cols-3 gap-3">
-          <MetricBadge 
-            icon={<Recycle className="w-5 h-5 text-green-500" />} 
-            label="Recycled" 
-            value={product.recycledCount} 
+          <MetricBadge
+            icon={<Recycle className="w-5 h-5 text-green-500" />}
+            label="Recycled"
+            value={product.recycledCount}
           />
-          <MetricBadge 
-            icon={<BarChart className="w-5 h-5 text-blue-500" />} 
-            label="Sold" 
-            value={product.soldCount} 
+          <MetricBadge
+            icon={<BarChart className="w-5 h-5 text-blue-500" />}
+            label="Sold"
+            value={product.soldCount}
           />
-          <MetricBadge 
-            icon={<Package className="w-5 h-5 text-purple-500" />} 
-            label="Returned" 
-            value={product.returnedCount} 
+          <MetricBadge
+            icon={<Package className="w-5 h-5 text-purple-500" />}
+            label="Returned"
+            value={product.returnedCount}
           />
         </div>
 
         {/* View Details Link */}
-        <motion.div 
+        <motion.div
           className="mt-6 text-right"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -145,22 +144,20 @@ export const ProductCard: React.FC<IProductCardProps> = ({ product }) => {
         </motion.div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
 // Reusable Metric Badge Component
-const MetricBadge: React.FC<{ 
-  icon: React.ReactNode, 
-  label: string, 
-  value: number 
+const MetricBadge: React.FC<{
+  icon: React.ReactNode
+  label: string
+  value: number
 }> = ({ icon, label, value }) => (
   <div className="bg-white border border-gray-100 rounded-lg p-3 text-center shadow-sm">
-    <div className="flex justify-center mb-2">
-      {icon}
-    </div>
+    <div className="flex justify-center mb-2">{icon}</div>
     <p className="text-xs text-gray-500 uppercase tracking-wider">{label}</p>
     <p className="text-lg font-bold text-gray-800">{value}</p>
   </div>
-);
+)
 
-export default ProductCard;
+export default ProductCard
