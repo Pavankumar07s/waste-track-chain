@@ -13,6 +13,7 @@
     "@recycle-chain/3d": "*",
     "@recycle-chain/network": "*",
     "@recycle-chain/ui": "*",
+    "canvas-confetti": "^1.9.3",
     "dotenv": "^16.4.5",
     "ethers": "^6.13.0",
     "framer-motion": "^11.13.5",

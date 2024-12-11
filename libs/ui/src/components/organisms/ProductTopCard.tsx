@@ -43,23 +43,20 @@
 //   )
 // }
 
-
-
-
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  Package, 
-  Factory, 
-  Recycle, 
-  BarChart, 
-  ArrowLeft, 
-  AlertTriangle 
-} from 'lucide-react';
-import Link from 'next/link';
-import { ProductsQuery } from '@recycle-chain/network/src/gql/generated';
-import { DonutChartSimplified } from './DonutChartSimplified';
-import { ToxicItemsChart } from './ToxicItemsChart';
+import React from 'react'
+import { motion } from 'framer-motion'
+import {
+  Package,
+  Factory,
+  Recycle,
+  BarChart,
+  ArrowLeft,
+  AlertTriangle,
+} from 'lucide-react'
+import Link from 'next/link'
+import { ProductsQuery } from '@recycle-chain/network/src/gql/generated'
+import { DonutChartSimplified } from './DonutChartSimplified'
+import { ToxicItemsChart } from './ToxicItemsChart'
 
 export interface IProductTopCardProps {
   product: NonNullable<ProductsQuery['products']>[number]
@@ -82,7 +79,7 @@ export const ProductTopCard: React.FC<IProductTopCardProps> = ({ product }) => {
             returned={product.returnedCount}
             recycled={product.recycledCount}
           />
-          
+
           {/* Product Stat Badge */}
           <div className="mt-4 flex justify-center items-center bg-white rounded-full px-4 py-2 shadow-md">
             <Package className="w-5 h-5 mr-2 text-green-500" />
@@ -101,9 +98,7 @@ export const ProductTopCard: React.FC<IProductTopCardProps> = ({ product }) => {
             </h2>
             <div className="flex items-center justify-center lg:justify-start space-x-2 text-gray-600">
               <Factory className="w-5 h-5 text-blue-500" />
-              <span className="text-sm">
-                {product.manufacturer.name}
-              </span>
+              <span className="text-sm">{product.manufacturer.name}</span>
             </div>
           </div>
 
@@ -120,31 +115,28 @@ export const ProductTopCard: React.FC<IProductTopCardProps> = ({ product }) => {
 
           {/* Performance Metrics */}
           <div className="grid grid-cols-3 gap-4">
-            <MetricBadge 
-              icon={<Recycle className="w-5 h-5 text-green-500" />} 
-              label="Recycled" 
-              value={product.recycledCount} 
+            <MetricBadge
+              icon={<Recycle className="w-5 h-5 text-green-500" />}
+              label="Recycled"
+              value={product.recycledCount}
             />
-            <MetricBadge 
-              icon={<BarChart className="w-5 h-5 text-blue-500" />} 
-              label="Sold" 
-              value={product.soldCount} 
+            <MetricBadge
+              icon={<BarChart className="w-5 h-5 text-blue-500" />}
+              label="Sold"
+              value={product.soldCount}
             />
-            <MetricBadge 
-              icon={<Package className="w-5 h-5 text-purple-500" />} 
-              label="Returned" 
-              value={product.returnedCount} 
+            <MetricBadge
+              icon={<Package className="w-5 h-5 text-purple-500" />}
+              label="Returned"
+              value={product.returnedCount}
             />
           </div>
 
           {/* Action Links */}
           <div className="flex space-x-4 mt-6">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link 
-                href="/products" 
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/products"
                 className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 font-semibold transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
@@ -155,22 +147,20 @@ export const ProductTopCard: React.FC<IProductTopCardProps> = ({ product }) => {
         </div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
 // Reusable Metric Badge Component
-const MetricBadge: React.FC<{ 
-  icon: React.ReactNode, 
-  label: string, 
-  value: number 
+const MetricBadge: React.FC<{
+  icon: React.ReactNode
+  label: string
+  value: number
 }> = ({ icon, label, value }) => (
   <div className="bg-white border border-gray-100 rounded-lg p-3 text-center shadow-sm">
-    <div className="flex justify-center mb-2">
-      {icon}
-    </div>
+    <div className="flex justify-center mb-2">{icon}</div>
     <p className="text-xs text-gray-500 uppercase tracking-wider">{label}</p>
     <p className="text-lg font-bold text-gray-800">{value}</p>
   </div>
-);
+)
 
-export default ProductTopCard;
+export default ProductTopCard

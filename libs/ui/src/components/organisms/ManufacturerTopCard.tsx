@@ -67,20 +67,13 @@
 //   )
 // }
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { 
-  MapPin, 
-  Phone, 
-  Box, 
-  ArrowLeft, 
-  Users, 
-  CheckCircle 
-} from 'lucide-react';
-import Link from 'next/link';
-import { ManufacturersQuery } from '@recycle-chain/network/src/gql/generated';
-import { useAccount } from '@recycle-chain/util/src/hooks/ether';
-import { DonutChartSimplified } from './DonutChartSimplified';
+import React from 'react'
+import { motion } from 'framer-motion'
+import { MapPin, Phone, Box, ArrowLeft, Users, CheckCircle } from 'lucide-react'
+import Link from 'next/link'
+import { ManufacturersQuery } from '@recycle-chain/network/src/gql/generated'
+import { useAccount } from '@recycle-chain/util/src/hooks/ether'
+import { DonutChartSimplified } from './DonutChartSimplified'
 
 export const ManufacturerTopCard = ({
   manufacturer,
@@ -89,8 +82,8 @@ export const ManufacturerTopCard = ({
   manufacturer: ManufacturersQuery['manufacturers'][0]
   className?: string
 }) => {
-  const { account } = useAccount();
-  const isYou = account.toLowerCase() === manufacturer.id.toLowerCase();
+  const { account } = useAccount()
+  const isYou = account.toLowerCase() === manufacturer.id.toLowerCase()
 
   return (
     <motion.div
@@ -119,7 +112,7 @@ export const ManufacturerTopCard = ({
                 {manufacturer.name}
               </h2>
               {isYou && (
-                <motion.div 
+                <motion.div
                   className="bg-green-500 text-white text-xs px-3 py-1 rounded-full flex items-center space-x-1"
                   initial={{ scale: 0.8 }}
                   animate={{ scale: 1 }}
@@ -139,36 +132,33 @@ export const ManufacturerTopCard = ({
 
           {/* Manufacturer Details Grid */}
           <div className="grid md:grid-cols-2 gap-4">
-            <DetailItem 
-              icon={<MapPin className="text-blue-500" />} 
-              label="Address" 
-              value={manufacturer.location} 
+            <DetailItem
+              icon={<MapPin className="text-blue-500" />}
+              label="Address"
+              value={manufacturer.location}
             />
-            <DetailItem 
-              icon={<Phone className="text-green-500" />} 
-              label="Contact" 
-              value={manufacturer.contact} 
+            <DetailItem
+              icon={<Phone className="text-green-500" />}
+              label="Contact"
+              value={manufacturer.contact}
             />
-            <DetailItem 
-              icon={<Box className="text-purple-500" />} 
-              label="Products" 
-              value={`${manufacturer.productsCount} Products`} 
+            <DetailItem
+              icon={<Box className="text-purple-500" />}
+              label="Products"
+              value={`${manufacturer.productsCount} Products`}
             />
-            <DetailItem 
-              icon={<Users className="text-orange-500" />} 
-              label="Total Items" 
-              value={manufacturer.totalCount} 
+            <DetailItem
+              icon={<Users className="text-orange-500" />}
+              label="Total Items"
+              value={manufacturer.totalCount}
             />
           </div>
 
           {/* Action Links */}
           <div className="flex space-x-4 mt-6">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link 
-                href="/manufacturers" 
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link
+                href="/manufacturers"
                 className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 font-semibold transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
@@ -179,18 +169,18 @@ export const ManufacturerTopCard = ({
         </div>
       </div>
     </motion.div>
-  );
-};
+  )
+}
 
 // Reusable Detail Item Component
-const DetailItem = ({ 
-  icon, 
-  label, 
-  value 
-}: { 
-  icon: React.ReactNode, 
-  label: string, 
-  value: string | number 
+const DetailItem = ({
+  icon,
+  label,
+  value,
+}: {
+  icon: React.ReactNode
+  label: string
+  value: string | number
 }) => (
   <div className="bg-gray-50 p-4 rounded-xl flex items-center space-x-4">
     <div className="w-12 h-12 bg-white shadow-md rounded-full flex items-center justify-center">
@@ -201,6 +191,6 @@ const DetailItem = ({
       <p className="text-gray-800 font-semibold">{value}</p>
     </div>
   </div>
-);
+)
 
-export default ManufacturerTopCard;
+export default ManufacturerTopCard
