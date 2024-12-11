@@ -583,13 +583,13 @@
   resolved "https://registry.npmjs.org/@nomicfoundation/hardhat-ignition-ethers/-/hardhat-ignition-ethers-0.15.7.tgz"
   integrity sha512-pUZWQeFNMwDe6F/yKIJsCo+87elk/M/Edjp6AnWWIBplRyPa13Nh63+yOqMSSd9Mx9lLuBaEGnYXoI2Uz2wYZA==
 
-"@nomicfoundation/hardhat-ignition@^0.15.7":
-  version "0.15.7"
-  resolved "https://registry.npmjs.org/@nomicfoundation/hardhat-ignition/-/hardhat-ignition-0.15.7.tgz"
-  integrity sha512-RFhGazR0/JqHxuuIxjjMmM+nWFqEvA7wcVqcX7vUqqmAIGuok4HhnWQH8aOvBaVguiXvvlFDJL0PIlxmkFgIUg==
+"@nomicfoundation/hardhat-ignition@^0.15.7", "@nomicfoundation/hardhat-ignition@^0.15.8":
+  version "0.15.8"
+  resolved "https://registry.npmjs.org/@nomicfoundation/hardhat-ignition/-/hardhat-ignition-0.15.8.tgz"
+  integrity sha512-TN8TFQokcd7VyqGfbXO+KS8Q4K/gmsOFlv8dPnt/N596AncgV2Igxh5C3O+KVez11PDHNqoj1JzcDzzNVHrIRw==
   dependencies:
-    "@nomicfoundation/ignition-core" "^0.15.7"
-    "@nomicfoundation/ignition-ui" "^0.15.7"
+    "@nomicfoundation/ignition-core" "^0.15.8"
+    "@nomicfoundation/ignition-ui" "^0.15.8"
     chalk "^4.0.0"
     debug "^4.3.2"
     fs-extra "^10.0.0"
@@ -623,10 +623,10 @@
     table "^6.8.0"
     undici "^5.14.0"
 
-"@nomicfoundation/ignition-core@^0.15.7":
-  version "0.15.7"
-  resolved "https://registry.npmjs.org/@nomicfoundation/ignition-core/-/ignition-core-0.15.7.tgz"
-  integrity sha512-C4/0V/q2gNxKDt88cMr+Oxlf4NINQ7QgmJyciQ1/6UdCRUg+/Pgdgpd3vgGXQVTotq50Q/BU4ofNUAD/8HRqtg==
+"@nomicfoundation/ignition-core@^0.15.7", "@nomicfoundation/ignition-core@^0.15.8":
+  version "0.15.8"
+  resolved "https://registry.npmjs.org/@nomicfoundation/ignition-core/-/ignition-core-0.15.8.tgz"
+  integrity sha512-U+CmTjKU9uwvh7qIabqboy/K/sDoClDgpsFRHoFvAj87DPDkXYb/mZBSkXPTU1wxTxrW6GTFE4lG3e7LAyF+kw==
   dependencies:
     "@ethersproject/address" "5.6.1"
     "@nomicfoundation/solidity-analyzer" "^0.1.1"
@@ -638,10 +638,10 @@
     lodash "4.17.21"
     ndjson "2.0.0"
 
-"@nomicfoundation/ignition-ui@^0.15.7":
-  version "0.15.7"
-  resolved "https://registry.npmjs.org/@nomicfoundation/ignition-ui/-/ignition-ui-0.15.7.tgz"
-  integrity sha512-pj2LmXylgbHOTNrkFqFrre/FAOjcwYl4VKIKVH/QMMBH/DatbiT8aC5n9o2fbLD8uwlPEesD+uXZuKCE71KFBg==
+"@nomicfoundation/ignition-ui@^0.15.8":
+  version "0.15.8"
+  resolved "https://registry.npmjs.org/@nomicfoundation/ignition-ui/-/ignition-ui-0.15.8.tgz"
+  integrity sha512-VUD5MsWrrv7E2P0AJO01pV8w8m66Du0uwBKXM0oUV5DRIzqm6eYHt9eCDb1KBINDpiFxOQiuyWQMdeKxgPp3qw==
 
 "@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.2":
   version "0.1.2"

@@ -13,8 +13,12 @@
     "@recycle-chain/3d": "*",
     "@recycle-chain/network": "*",
     "@recycle-chain/ui": "*",
+    "canvas-confetti": "^1.9.3",
     "dotenv": "^16.4.5",
     "ethers": "^6.13.0",
+    "framer-motion": "^11.13.5",
+    "lucide-react": "^0.468.0",
+    "motion": "^11.13.5",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18"
